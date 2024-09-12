@@ -61,9 +61,15 @@
         document.getElementById('deleteForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
+            var username = document.getElementById('username').value;
             var confirmed = document.getElementById('confirm').checked;
 
             if (confirmed) {
+                var subject = encodeURIComponent("Account Deletion Request");
+                var body = encodeURIComponent("Username: " + username + "\n\nUser has confirmed account deletion request.");
+                
+                window.location.href = "mailto:admin@box479.com?subject=" + subject + "&body=" + body;
+                
                 document.getElementById('deleteForm').style.display = 'none';
                 document.getElementById('confirmationMessage').style.display = 'block';
             } else {
