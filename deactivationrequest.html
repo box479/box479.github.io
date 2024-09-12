@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Deletion Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label, input, button {
+            margin-bottom: 10px;
+        }
+        button {
+            background-color: #ff4444;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #ff0000;
+        }
+        #confirmationMessage {
+            display: none;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Delete Your Account</h1>
+    <form id="deleteForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <label for="confirm">
+            <input type="checkbox" id="confirm" name="confirm" required>
+            I understand this action is irreversible
+        </label>
+
+        <button type="submit">Delete Account</button>
+    </form>
+
+    <div id="confirmationMessage">Your request has been sent!</div>
+
+    <script>
+        document.getElementById('deleteForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            var confirmed = document.getElementById('confirm').checked;
+
+            if (confirmed) {
+                document.getElementById('deleteForm').style.display = 'none';
+                document.getElementById('confirmationMessage').style.display = 'block';
+            } else {
+                alert("Please confirm that you understand this action is irreversible.");
+            }
+        });
+    </script>
+</body>
+</html>
