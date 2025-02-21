@@ -1,46 +1,150 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+import React from 'react';
+import { Truck, MapPin, Shield, Phone, Mail, Clock, ChevronRight } from 'lucide-react';
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous" />
-
-    <title>Box479 | Home</title>
-  </head>
-  <body>
-    <section>
-      <div class="container mt-5 pt-5">
-        <div class="row">
-          <div class="col-12 col-sm-7 col-md-6 m-auto">
-            <div class="card border-0 shadow">
-              <div class="card-body">
-                <svg class="mx-auto my-3" xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-                  <p>Box479 Profile</p>
-                  <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
-                  <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
-                </svg>
-                <form action="">
-                  <input type="text" name="" id="" class="form-control my-4 py-2" placeholder="Username" />
-                  <input type="text" name="" id="" class="form-control my-4 py-2" placeholder="Password" />
-                  <div class="text-center mt-3">
-                    <button class="btn btn-primary">Login</button>
-                    <a href="#" class="nav-link">Already have an account ?</a>
-                  </div><br>
-                  <div class="text-center mt-3">
-                   <p><a href="mailto:admin@box479.com">Contact Us</a></p>
-                  </div>
-                </form>
-              </div>
+const FleetTrackingWebsite = () => {
+  return (
+    <div className="min-h-screen bg-white">
+      {/* Navigation */}
+      <nav className="bg-white shadow-lg">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between h-16">
+            <div className="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M3 8h13l3 3v4a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8Z"/>
+                <path d="M19 11h3v3"/>
+                <path d="M3 11v3"/>
+                <circle cx="7" cy="16" r="2"/>
+                <circle cx="15" cy="16" r="2"/>
+                <path d="M9 11v-4"/>
+                <path d="M15 11v-4"/>
+                <path d="M9 8h6"/>
+                <path d="M6 8v3"/>
+                <path d="M18 8v3"/>
+              </svg>
+              <span className="ml-2 text-xl font-bold text-yellow-400">Box479</span>
+            </div>
+            <div className="flex items-center space-x-4">
+              <a href="#features" className="text-gray-600 hover:text-gray-900">Features</a>
+              <a href="#contact" className="text-gray-600 hover:text-gray-900">Contact</a>
+              <a href="#privacy" className="text-gray-600 hover:text-gray-900">Privacy</a>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </nav>
 
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
-  </body>
-</html>
+      {/* Hero Section */}
+      <div className="bg-black">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+          <div className="text-center">
+            <h1 className="text-4xl font-bold text-white sm:text-5xl md:text-6xl">
+              Track Your Fleet in Real Time
+            </h1>
+            <p className="mt-3 max-w-md mx-auto text-base text-gray-300 sm:text-lg md:mt-5 md:text-xl">
+              Powerful fleet management solution for your team
+            </p>
+
+          </div>
+        </div>
+      </div>
+
+      {/* Features */}
+      <div id="features" className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h2 className="text-3xl font-bold text-gray-900">Key Features</h2>
+          </div>
+          <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            <FeatureCard
+              icon={<MapPin className="h-8 w-8 text-black" />}
+              title="Real-Time Tracking"
+              description="Monitor your entire fleet's location and status in real-time with precise GPS tracking"
+            />
+            <FeatureCard
+              icon={<Shield className="h-8 w-8 text-black" />}
+              title="Project Management Solutions"
+              description="Comprehensive tools to manage your fleet projects and operations efficiently"
+            />
+            <FeatureCard
+              icon={<Clock className="h-8 w-8 text-black" />}
+              title="Route Optimization"
+              description="Save time and fuel with AI-powered route optimization algorithms"
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Contact Us */}
+      <div id="contact" className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h2 className="text-3xl font-bold text-gray-900">Contact Us</h2>
+            <p className="mt-4 text-lg text-gray-600">Get in touch with our support team</p>
+          </div>
+          <div className="mt-12">
+            <ContactCard
+              icon={<Mail className="h-6 w-6 text-black" />}
+              title="Email Support"
+              content="admin@box479.com"
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Privacy Policy */}
+      <div id="privacy" className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h2 className="text-3xl font-bold text-gray-900">Privacy Policy</h2>
+            <p className="mt-4 text-lg text-gray-600">We take your privacy seriously</p>
+          </div>
+          <div className="mt-8 prose prose-black mx-auto">
+            <p className="text-gray-600">
+              Our privacy policy outlines how we collect, use, and protect your data. We are committed to maintaining the trust and confidence of our users.
+            </p>
+            <a href="/privacy.html" className="inline-flex items-center text-black hover:text-gray-700">
+              Read full privacy policy
+              <ChevronRight className="ml-2 h-4 w-4" />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* Footer */}
+      <footer className="bg-gray-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="text-center text-gray-400">
+            <p>&copy; 2025 Box479 LLC. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+};
+
+// Component for feature cards
+const FeatureCard = ({ icon, title, description }) => {
+  return (
+    <div className="p-6 bg-white rounded-lg shadow-md">
+      <div className="flex items-center justify-center">{icon}</div>
+      <h3 className="mt-4 text-lg font-medium text-gray-900 text-center">{title}</h3>
+      <p className="mt-2 text-gray-600 text-center">{description}</p>
+    </div>
+  );
+};
+
+// Component for contact cards
+const ContactCard = ({ icon, title, content }) => {
+  return (
+    <div className="p-6 bg-white rounded-lg shadow-md">
+      <div className="flex items-center">
+        {icon}
+        <div className="ml-4">
+          <h3 className="text-lg font-medium text-gray-900">{title}</h3>
+          <p className="mt-1 text-gray-600">{content}</p>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default FleetTrackingWebsite;
